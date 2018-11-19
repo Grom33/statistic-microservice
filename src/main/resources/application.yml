@@ -1,0 +1,62 @@
+spring:
+  profiles: dev
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/statservice"
+    username: "postgres"
+    password: "password"
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        ddl-auto: validate
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    health:
+      defaults:
+        enabled: true
+---
+spring:
+  profiles: container
+  datasource:
+    url: "jdbc:postgresql://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}"
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        ddl-auto: validate
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    health:
+      defaults:
+        enabled: true
+---
+spring:
+  profiles: test
+  datasource:
+    url: "jdbc:h2:mem:test"
+    username: "sa"
+    password: ""
+---
+spring:
+  profiles:
+    active: 'dev'
