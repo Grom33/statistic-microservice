@@ -4,7 +4,8 @@
 ## Features
     - Adding event of visit web site
     - Getting statistics about visiting for required period
-Technology stack:
+    
+### Technology stack:
     - Spring Frameworks (Boot, DATA JPA, WEB, ACTUATOR)
     - PostgreSQL
     - Swagger API Documetation  
@@ -16,8 +17,8 @@ Technology stack:
 ### Quickstart
     1. git clone https://github.com/Grom33/statistic-microservice.git 
     2. cd [respository name]
-    3.`mvn clean package docker:build`
-    4.`docker-compose -f src/main/docker/docker-compose.yml up`
+    3. mvn clean package docker:build
+    4. docker-compose -f src/main/docker/docker-compose.yml up
 ###  quick guide 
     1. Open in browser URL for checking this micro-service : `http://localhost:8099/swagger-ui.html`. 
     Swagger will show API, and give the controls for using REST interface. You can try to use this REST 
