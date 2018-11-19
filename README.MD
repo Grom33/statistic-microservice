@@ -4,7 +4,7 @@
 ## Features
     - Adding event of visit web site
     - Getting statistics about visiting for required period
-#####Technology stack:
+Technology stack:
     - Spring Frameworks (Boot, DATA JPA, WEB, ACTUATOR)
     - PostgreSQL
     - Swagger API Documetation  
