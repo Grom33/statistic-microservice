@@ -16,7 +16,7 @@
     - Docker 
 ### Quickstart
     1. git clone https://github.com/Grom33/statistic-microservice.git 
-    2. cd [respository name]
+    2. cd statistic-microservice
     3. mvn clean package docker:build
     4. docker-compose -f src/main/docker/docker-compose.yml up
 ###  quick guide 

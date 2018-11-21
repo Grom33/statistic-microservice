@@ -1,7 +1,7 @@
 package com.gromov.statservice;
 
+import com.gromov.statservice.dto.ExtendedEventStatisticsDto;
 import com.gromov.statservice.dto.EventStatisticsDto;
-import com.gromov.statservice.dto.ShortEventStatisticsDto;
 import com.gromov.statservice.model.Event;
 import com.gromov.statservice.service.EventService;
 import org.junit.runner.RunWith;
@@ -41,11 +41,11 @@ public abstract class ApplicationTests {
 	protected final LocalDateTime THIRD_DAY = LocalDateTime.of(2018, 11, 18, 12, 25);
 	protected final LocalDateTime BEGIN_OF_FIRST_DAY = LocalDateTime.of(2018, 11, 16, 0, 0);
 	protected final LocalDateTime END_OF_SECOND_DAY = LocalDateTime.of(2018, 11, 17, 23, 59, 59);
-	protected final ShortEventStatisticsDto EXPECTED_STATISTICS_BY_FIRST_DAY = new ShortEventStatisticsDto(12, 1);
-	protected final ShortEventStatisticsDto EXPECTED_STATISTICS_BY_SECOND_DAY = new ShortEventStatisticsDto(26, 3);
-	protected final ShortEventStatisticsDto EXPECTED_STATISTICS_BY_THIRD_DAY = new ShortEventStatisticsDto(21, 2);
-	protected final EventStatisticsDto EXPECTED_STATISTICS_BY_ALL_TIME = new EventStatisticsDto(56, 5, 2);
-	protected final EventStatisticsDto EXPECTED_STATISTICS_BETWEEN_FIRST_AND_SECOND_DAY = new EventStatisticsDto(36, 3, 2);
+	protected final EventStatisticsDto EXPECTED_STATISTICS_BY_FIRST_DAY = new EventStatisticsDto(12, 1);
+	protected final EventStatisticsDto EXPECTED_STATISTICS_BY_SECOND_DAY = new EventStatisticsDto(26, 3);
+	protected final EventStatisticsDto EXPECTED_STATISTICS_BY_THIRD_DAY = new EventStatisticsDto(21, 2);
+	protected final ExtendedEventStatisticsDto EXPECTED_STATISTICS_BY_ALL_TIME = new ExtendedEventStatisticsDto(56, 5, 2);
+	protected final ExtendedEventStatisticsDto EXPECTED_STATISTICS_BETWEEN_FIRST_AND_SECOND_DAY = new ExtendedEventStatisticsDto(36, 3, 2);
 
 	{
 		EVENT_LIST_OF_11_EVENTS_BY_FIRST_DAY = new ArrayList<>();

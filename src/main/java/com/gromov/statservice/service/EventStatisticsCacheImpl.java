@@ -5,7 +5,6 @@ package com.gromov.statservice.service;
  */
 
 import com.gromov.statservice.dto.EventStatisticsDto;
-import com.gromov.statservice.dto.ShortEventStatisticsDto;
 import com.gromov.statservice.model.Event;
 import com.gromov.statservice.repository.EventRepository;
 import lombok.Data;
@@ -54,13 +53,13 @@ public class EventStatisticsCacheImpl implements EventStatisticsCache {
 	}
 
 	@Override
-	public synchronized ShortEventStatisticsDto cache(Event event) {
+	public synchronized EventStatisticsDto cache(Event event) {
 		log.info("Add event {} to event cache statistics", event);
 		DayStatistic dayStatistic = getDayStatistic(event.getDateOfCreation().toLocalDate());
 		long eventCount = dayStatistic.getEventCounter().incrementAndGet();
 		dayStatistic.getUniqueUserSet().add(event.getIdUser());
 		int uniqueUserCount = dayStatistic.getUniqueUserSet().size();
-		return new ShortEventStatisticsDto(eventCount, uniqueUserCount);
+		return new EventStatisticsDto(eventCount, uniqueUserCount);
 	}
 
 	private DayStatistic getDayStatistic(LocalDate localDate) {

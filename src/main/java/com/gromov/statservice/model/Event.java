@@ -5,7 +5,7 @@ package com.gromov.statservice.model;
  *   e-mail: mr.gromov.vitaly@gmail.com
  */
 
-import com.gromov.statservice.dto.EventStatisticsDto;
+import com.gromov.statservice.dto.ExtendedEventStatisticsDto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -33,7 +33,7 @@ import java.time.LocalDateTime;
 )
 @SqlResultSetMapping(name = "event_statistics_dto",
 		classes = {
-				@ConstructorResult(targetClass = EventStatisticsDto.class, columns = {
+				@ConstructorResult(targetClass = ExtendedEventStatisticsDto.class, columns = {
 						@ColumnResult(name = "totalVisitsAmount", type = Long.class),
 						@ColumnResult(name = "uniqueUsersAmount", type = Long.class),
 						@ColumnResult(name = "permanentUsersAmount", type = Integer.class)

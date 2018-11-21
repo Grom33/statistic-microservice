@@ -6,8 +6,8 @@ package com.gromov.statservice.web;
  */
 
 import com.gromov.statservice.dto.EventDto;
+import com.gromov.statservice.dto.ExtendedEventStatisticsDto;
 import com.gromov.statservice.dto.EventStatisticsDto;
-import com.gromov.statservice.dto.ShortEventStatisticsDto;
 import com.gromov.statservice.service.EventService;
 import com.gromov.statservice.util.EventUtil;
 import lombok.RequiredArgsConstructor;
@@ -34,7 +34,7 @@ public class EventRestController {
 	public EventStatisticsDto getStatistics(@RequestHeader("start")
 	                                        @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
 			                                        LocalDateTime startDate,
-	                                        @RequestHeader("end")
+	                                                @RequestHeader("end")
 	                                        @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
 			                                        LocalDateTime endDate) {
 		log.info("GET Request for statistic between {} and {}", startDate, endDate);

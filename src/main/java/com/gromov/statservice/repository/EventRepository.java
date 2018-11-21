@@ -4,7 +4,7 @@ package com.gromov.statservice.repository;
  *   e-mail: mr.gromov.vitaly@gmail.com
  */
 
-import com.gromov.statservice.dto.EventStatisticsDto;
+import com.gromov.statservice.dto.ExtendedEventStatisticsDto;
 import com.gromov.statservice.model.Event;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -28,9 +28,9 @@ public interface EventRepository extends JpaRepository<Event, Long> {
 	 */
 	@Transactional(readOnly = true)
 	@Query(name = "getStatistics", nativeQuery = true)
-	EventStatisticsDto getEventStatisticsBetweenDate(@Param("pageCountOfRegularUser") long pageCountOfRegularUser,
-	                                                 @Param("startDate") LocalDateTime startDate,
-	                                                 @Param("endDate") LocalDateTime endDate);
+	ExtendedEventStatisticsDto getEventStatisticsBetweenDate(@Param("pageCountOfRegularUser") long pageCountOfRegularUser,
+	                                                         @Param("startDate") LocalDateTime startDate,
+	                                                         @Param("endDate") LocalDateTime endDate);
 
 	/**
 	 * Method for obtaining the number of unique visitors for the required period

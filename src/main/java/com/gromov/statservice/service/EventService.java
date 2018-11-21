@@ -4,8 +4,8 @@ package com.gromov.statservice.service;
  *   e-mail: mr.gromov.vitaly@gmail.com
  */
 
+import com.gromov.statservice.dto.ExtendedEventStatisticsDto;
 import com.gromov.statservice.dto.EventStatisticsDto;
-import com.gromov.statservice.dto.ShortEventStatisticsDto;
 import com.gromov.statservice.model.Event;
 
 import java.time.LocalDateTime;
@@ -19,11 +19,11 @@ public interface EventService {
 	/**
 	 * Method to add a visit event
 	 */
-	ShortEventStatisticsDto addEvent(Event event);
+	EventStatisticsDto addEvent(Event event);
 
 	/**
 	 * Method for obtaining statistics for the required period
 	 */
-	EventStatisticsDto getStatistics(LocalDateTime startDateTime, LocalDateTime endDateTime);
+	ExtendedEventStatisticsDto getStatistics(LocalDateTime startDateTime, LocalDateTime endDateTime);
 
 }

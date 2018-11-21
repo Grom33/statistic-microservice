@@ -5,8 +5,8 @@ package com.gromov.statservice.service;
  *   e-mail: mr.gromov.vitaly@gmail.com
  */
 
+import com.gromov.statservice.dto.ExtendedEventStatisticsDto;
 import com.gromov.statservice.dto.EventStatisticsDto;
-import com.gromov.statservice.dto.ShortEventStatisticsDto;
 import com.gromov.statservice.model.Event;
 import com.gromov.statservice.repository.EventRepository;
 import lombok.RequiredArgsConstructor;
@@ -31,14 +31,14 @@ public class EventServiceImpl implements EventService {
 	private final int PAGE_COUNT_OF_REGULAR_USER = 10;
 
 	@Override
-	public ShortEventStatisticsDto addEvent(Event event) {
+	public EventStatisticsDto addEvent(Event event) {
 		log.info("Add event: {}", event);
 		eventRepository.save(event);
 		return eventStatisticsCache.cache(event);
 	}
 
 	@Override
-	public EventStatisticsDto getStatistics(LocalDateTime startDateTime, LocalDateTime endDateTime) {
+	public ExtendedEventStatisticsDto getStatistics(LocalDateTime startDateTime, LocalDateTime endDateTime) {
 		log.info("Get statistics between {} and {}", startDateTime, endDateTime);
 		return eventRepository.getEventStatisticsBetweenDate(
 				PAGE_COUNT_OF_REGULAR_USER, startDateTime, endDateTime);
