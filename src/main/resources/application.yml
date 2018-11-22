@@ -23,6 +23,8 @@ management:
     health:
       defaults:
         enabled: true
+server:
+  port: 8989
 ---
 spring:
   profiles: container

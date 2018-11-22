@@ -30,8 +30,8 @@ public class EventRestController {
 
 	private final Logger log = LoggerFactory.getLogger(getClass());
 
-	@GetMapping(value = "/statistics")
-	public EventStatisticsDto getStatistics(@RequestHeader("start")
+	@GetMapping(value = "/statistics", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ExtendedEventStatisticsDto getStatistics(@RequestHeader("start")
 	                                        @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
 			                                        LocalDateTime startDate,
 	                                                @RequestHeader("end")
@@ -41,8 +41,9 @@ public class EventRestController {
 		return eventService.getStatistics(startDate, endDate);
 	}
 
-	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ShortEventStatisticsDto addEvent(@RequestBody EventDto eventDto) {
+	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE,
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public EventStatisticsDto addEvent(@RequestBody EventDto eventDto) {
 		log.info("POST Request for adding the event: {}", eventDto);
 		return eventService.addEvent(EventUtil.createNewFromDto(eventDto));
 	}

@@ -5,10 +5,8 @@ package com.gromov.statservice.dto;
  *   e-mail: mr.gromov.vitaly@gmail.com
  */
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.RequiredArgsConstructor;
 
 /**
  * Data transfer object contains the statistic in response to request statistic.

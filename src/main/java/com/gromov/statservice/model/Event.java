@@ -21,7 +21,9 @@ import java.time.LocalDateTime;
 		name = "getStatistics",
 		query = "SELECT COUNT(events.id) as totalVisitsAmount, " +
 				"       COUNT(DISTINCT id_user) as uniqueUsersAmount, " +
-				"       (SELECT COUNT(*) FROM (SELECT unique_users.id_user, (SELECT COUNT(DISTINCT id_page) as coun " +
+				"       (SELECT COUNT(*) FROM (" +
+				"               SELECT unique_users.id_user, (" +
+				"                   SELECT COUNT(DISTINCT id_page) as coun " +
 				"                   FROM events unique_page " +
 				"                   WHERE unique_users.id_user = unique_page.id_user " +
 				"                       AND unique_page.date_creation  " +
